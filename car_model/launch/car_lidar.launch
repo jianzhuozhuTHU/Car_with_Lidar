@@ -1,0 +1,19 @@
+<launch>
+	<!-- 设置launch文件的参数 -->
+    <arg name="paused" default="false"/>
+    <arg name="use_sim_time" default="true"/>
+    <arg name="gui" default="true"/>
+    <arg name="headless" default="false"/>
+    <arg name="debug" default="false"/>
+
+	<!--运行gazebo仿真环境-->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find car_model)/world/car_and_people.world"/>
+    <!-- more default parameters can be changed here -->
+  </include>
+
+	<!-- 加载机器人模型描述参数 -->
+  <include file="$(find car_model)/launch/spawn_car.launch">
+  </include>
+
+</launch>
